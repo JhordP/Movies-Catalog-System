@@ -4,9 +4,7 @@ public class Movie { //Represents Movie objects used in the movies catalog app.
 
     private String name;
 
-    public Movie() {
-
-    }
+    public Movie() {} //Empty constructor
     public Movie(String name) {
         this.name = name;
     }
