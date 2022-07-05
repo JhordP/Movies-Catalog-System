@@ -1,6 +1,7 @@
 package app;
 import java.util.Scanner;
-import dom.com.gm.movies.business.*;
+
+import dom.com.gm.movies.service.*;
 
 public class MovieApp {
     static Scanner input;

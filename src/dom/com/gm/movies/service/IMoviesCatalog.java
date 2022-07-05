@@ -1,4 +1,4 @@
-package dom.com.gm.movies.business;
+package dom.com.gm.movies.service;
 
 public interface IMoviesCatalog { //Contains the Movie Catalog required operations
 

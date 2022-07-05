@@ -1,8 +1,8 @@
-package dom.com.gm.movies.business;
+package dom.com.gm.movies.service;
 
 import dom.com.gm.movies.data.DataAccessImpl;
 
-public class MoviesCatalogImpl {
+public class MoviesCatalogImpl implements IMoviesCatalog{
     
     DataAccessImpl data;
 
