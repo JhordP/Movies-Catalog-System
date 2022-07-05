@@ -42,7 +42,21 @@ public class DataAccessImpl implements IDataAccess{
 
     @Override
     public void write(Movie movie, String fileName, boolean append) throws DataWriteEx {
-        
+        var file = new File(fileName);
+        try {
+            var output = new PrintWriter(new FileWriter(file, append));
+            output.println(movie.toString()); //Since this is NOT System.out.println you shall use .toString method
+            output.close();
+
+            if (!append) {
+                System.out.println("Data added: "+movie);
+            } else {
+                System.out.println("Data overrided: "+movie);
+            }
+        } catch (IOException e) {          
+            e.printStackTrace();
+            throw new DataWriteEx("Data write exception: "+e.getMessage());
+        }
         
     }
 

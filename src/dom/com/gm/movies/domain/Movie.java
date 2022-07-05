@@ -18,7 +18,7 @@ public class Movie { //Represents Movie objects used in the movies catalog app.
 
     @Override
     public String toString() {
-        return "Movie [name=" + name + "]";
+        return this.name;
     }
 }
 //Challenge Given by: Global Mentoring Java University Course.
