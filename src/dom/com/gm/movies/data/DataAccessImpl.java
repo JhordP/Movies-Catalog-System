@@ -95,13 +95,21 @@ public class DataAccessImpl implements IDataAccess{
 
     @Override
     public void create(String fileName) throws DataAccesEx {
-        // TODO Auto-generated method stub
-        
+        var file = new File(fileName);
+        try {
+            var output = new PrintWriter(new FileWriter(file));
+            output.close();
+            System.out.println("File created successfully");
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new DataAccesEx("Error creating the file. "+e.getMessage());
+        }
     }
 
     @Override
     public void delete(String fileName) throws DataAccesEx {
-        // TODO Auto-generated method stub
+        var file = new File(fileName);
+        if (file.exists()){ file.delete(); System.out.println("File deleted."); }
         
     }
 
