@@ -48,10 +48,10 @@ public class DataAccessImpl implements IDataAccess{
             output.println(movie.toString()); //Since this is NOT System.out.println you shall use .toString method
             output.close();
 
-            if (!append) {
+            if (append) {
                 System.out.println("Data added: "+movie);
             } else {
-                System.out.println("Data overrided: "+movie);
+                System.out.println("Data generated: "+movie);
             }
         } catch (IOException e) {          
             e.printStackTrace();
