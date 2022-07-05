@@ -62,8 +62,35 @@ public class DataAccessImpl implements IDataAccess{
 
     @Override
     public String search(String fileName, String search) throws DataReadEx {
-        // TODO Auto-generated method stub
-        return null;
+        var file = new File(fileName);
+        StringBuilder searchResult = new StringBuilder();
+        try {
+            var input = new BufferedReader(new FileReader(file));
+            String line = null;
+            line = input.readLine();
+            var index = 1;
+            while (line != null) {
+                if (search != null && search.equalsIgnoreCase(line)) {
+                    searchResult.append("Movie: "+line +" Index: "+index+"\n");
+                }
+                line = input.readLine();
+                index++;
+            }
+            input.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new DataReadEx("Data read exception: "+e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new DataReadEx("Data read exception: "+e.getMessage());
+        }
+        
+        if (searchResult.isEmpty()) {
+            return "Data not found.";    
+        }
+        else{
+            return searchResult.toString();
+        }
     }
 
     @Override
