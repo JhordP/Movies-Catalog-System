@@ -70,7 +70,7 @@ public class DataAccessImpl implements IDataAccess{
             line = input.readLine();
             var index = 1;
             while (line != null) {
-                if (search != null && search.equalsIgnoreCase(line)) {
+                if (search != null && line.contains(search)) {
                     searchResult.append("Movie: "+line +" Index: "+index+"\n");
                 }
                 line = input.readLine();
