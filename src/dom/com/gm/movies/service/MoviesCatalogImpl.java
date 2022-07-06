@@ -3,6 +3,7 @@ package dom.com.gm.movies.service;
 import dom.com.gm.movies.data.*;
 import dom.com.gm.movies.domain.Movie;
 import dom.com.gm.movies.exceptions.DataAccesEx;
+import dom.com.gm.movies.exceptions.DataReadEx;
 
 public class MoviesCatalogImpl implements IMoviesCatalog{
     
@@ -25,11 +26,25 @@ public class MoviesCatalogImpl implements IMoviesCatalog{
     }
 
     public void movieList(){
-
+        try {
+            var movies = this.data.list(IMoviesCatalog.FILE_NAME);
+            for (Movie movie : movies) {
+                System.out.println(movie);
+            }
+        } catch (DataReadEx e) {
+            System.out.println("Error trying to retrieve the data list: ");
+            e.printStackTrace();
+        }
     }
     
     public void searchMovie(String search){
-
+        try {
+            String searchResult = this.data.search(IMoviesCatalog.FILE_NAME, search);
+            System.out.println("Search Results:\n"+searchResult);
+        } catch (DataReadEx e) {
+            System.out.println("Data search error:");
+            e.printStackTrace();
+        }
     }
 
     public void startFile(){
