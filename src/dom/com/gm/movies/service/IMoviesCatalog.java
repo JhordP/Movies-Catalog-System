@@ -6,5 +6,5 @@ public interface IMoviesCatalog { //Contains the Movie Catalog required operatio
     void addMovie(String movieName/* , String fileName*/);
     void movieList(/*String fileName*/);
     void searchMovie(/*String fileName,*/ String search);
-    void startFile(/*String fileName*/);
+    void restartFile(/*String fileName*/);
 }

@@ -47,7 +47,17 @@ public class MoviesCatalogImpl implements IMoviesCatalog{
         }
     }
 
-    public void startFile(){
-
+    public void restartFile(){
+        try {
+            if (this.data.exists(IMoviesCatalog.FILE_NAME)) {
+                this.data.delete(IMoviesCatalog.FILE_NAME);
+                this.data.create(IMoviesCatalog.FILE_NAME);
+            }else {
+                data.create(IMoviesCatalog.FILE_NAME);
+            }
+        } catch (DataAccesEx e) {
+            System.out.println("Error re-starting the movie catalog file.");
+            e.printStackTrace();
+        }
     }
 }
