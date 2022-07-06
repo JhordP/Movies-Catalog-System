@@ -2,7 +2,7 @@ package app;
 import java.util.Scanner;
 
 import dom.com.gm.movies.service.*;
-
+//Main Class
 public class MovieApp {
     static Scanner input;
     static int option;
@@ -12,8 +12,9 @@ public class MovieApp {
     public static void main(String[] args) {
         option = -1;
         MovieApp.input = new Scanner(System.in);
-        MovieApp.movieCatalog = new MoviesCatalogImpl();
+        MovieApp.movieCatalog = new MoviesCatalogImpl(); //Movie Catalog cast.
 
+        //Menu
         while(option != 0) {
             System.out.println("Select an option using the keyboard numbers.\n"+
             "1) Initiate Movie Catalog\n"+
@@ -44,7 +45,7 @@ public class MovieApp {
                         var search = MovieApp.input.nextLine();
                         MovieApp.movieCatalog.searchMovie(search);
                         break;
-                        
+
                     case 0: 
                         System.out.println("Closing the app...\nApp closed.");
                         break;

@@ -5,6 +5,7 @@ import dom.com.gm.movies.domain.Movie;
 import dom.com.gm.movies.exceptions.DataAccesEx;
 import dom.com.gm.movies.exceptions.DataReadEx;
 
+//Class implementing IMoviesCatalog interface.
 public class MoviesCatalogImpl implements IMoviesCatalog{
     
     private final IDataAccess data;

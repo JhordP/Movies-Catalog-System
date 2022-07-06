@@ -6,14 +6,17 @@ import java.util.*;
 import dom.com.gm.movies.domain.Movie;
 import dom.com.gm.movies.exceptions.*;
 
+//Class implementing IDataAccess interface.
 public class DataAccessImpl implements IDataAccess{
 
+    //File Exists?
     @Override
     public boolean exists(String fileName) throws DataAccesEx {
         var file = new File(fileName);
         return file.exists();
     }
 
+    //List Movies
     @Override
     public List<Movie> list(String fileName) throws DataReadEx {
         var file = new File(fileName);
@@ -40,6 +43,7 @@ public class DataAccessImpl implements IDataAccess{
         }
     }
 
+    //Write Data
     @Override
     public void write(Movie movie, String fileName, boolean append) throws DataWriteEx {
         var file = new File(fileName);
@@ -60,6 +64,7 @@ public class DataAccessImpl implements IDataAccess{
         
     }
 
+    //Search Data
     @Override
     public String search(String fileName, String search) throws DataReadEx {
         var file = new File(fileName);
@@ -93,6 +98,7 @@ public class DataAccessImpl implements IDataAccess{
         }
     }
 
+    //Create new data
     @Override
     public void create(String fileName) throws DataAccesEx {
         var file = new File(fileName);
@@ -106,6 +112,7 @@ public class DataAccessImpl implements IDataAccess{
         }
     }
 
+    //Delete data
     @Override
     public void delete(String fileName) throws DataAccesEx {
         var file = new File(fileName);
